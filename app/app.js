@@ -1,7 +1,6 @@
 const Koa = require('koa');
 const routers = require('../router/index');
 const bodyParser = require('koa-bodyparser');
-
 const app = new Koa();
 
 // 使用bodyParse对请求参数进行解析
