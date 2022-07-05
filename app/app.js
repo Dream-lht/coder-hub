@@ -1,6 +1,8 @@
 const Koa = require('koa');
 const routers = require('../router/index');
 const bodyParser = require('koa-bodyparser');
+const handleError = require('./handleError');
+
 const app = new Koa();
 
 // 使用bodyParse对请求参数进行解析
@@ -12,4 +14,5 @@ app.use(routers.userRouter.routes());
 // 当请求方法不存在的时候，进行处理
 app.use(routers.userRouter.allowedMethods());
 
+app.on('error',handleError);
 module.exports = app;

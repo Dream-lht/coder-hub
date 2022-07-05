@@ -1,6 +1,6 @@
 const mysql = require('mysql2');
 const config = require('./config');
-const connection  = mysql.createConnection({
+const connection  = mysql.createPool({
     user:config.MYSQL_USER,
     password:config.MYSQL_PASSWORD,
     host:config.MYSQL_HOST,
@@ -8,8 +8,15 @@ const connection  = mysql.createConnection({
     database:config.MYSQL_DATABASE,
 })
 
+// 检测数据库是否连接成功
+connection.getConnection((err,conn) => {
+    if(err){
+        console.log("连接失败",err);
+        return;
+    }
+    console.log("连接成功");
 
-connection.execute('select * from user',function(err,result,fields){
-    console.log("数据库连接成功");
-    console.log(result);
 })
+
+// 导出连接
+module.exports = connection;
