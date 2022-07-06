@@ -4,6 +4,13 @@ const USER_OR_PASSWORD_NIT_NULL = {
     type:'USER_OR_PASSWORD_NIT_NULL'
 }
 
+const USER_NAME_NOT_EQUAL = {
+    message:"用户名不能重复！",
+    errorCode:401,
+    type:'USER_NAME_NOT_EQUAL'
+}
+
 module.exports = {
-    USER_OR_PASSWORD_NIT_NULL
+    USER_OR_PASSWORD_NIT_NULL,
+    USER_NAME_NOT_EQUAL
 }
