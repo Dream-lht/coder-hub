@@ -17,7 +17,6 @@ async function userVerify(ctx,next){
 
     // 判断用户是否已经存在于数据库当中
     const userInfo = await userService.getUserInfoByName(name);
-
     if(userInfo.length > 0){
         const error = new Error("USER_NAME_NOT_EQUAL");
         return ctx.app.emit('error',error,ctx);
@@ -29,7 +28,6 @@ async function userVerify(ctx,next){
 async function handlePassword(ctx,next){
     const {password} = ctx.request.body;
     ctx.request.body.password = AESPassword(password);
-    
     await next();
 }
 
