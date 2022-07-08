@@ -9,7 +9,7 @@ class UserService{
 
     async getUserInfoByName(name){
         const selectUserByName = 'select * from `user` where name=(?);'
-        return servicePromise(selectUserByName,[name]);
+        return await servicePromise(selectUserByName,[name]);
     }
 }
 
