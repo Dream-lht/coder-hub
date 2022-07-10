@@ -14,6 +14,10 @@ function handleError(error,ctx){
             status = errorConstant.USER_NAME_NOT_EQUAL.errorCode;
             message = errorConstant.USER_NAME_NOT_EQUAL.message;
             break;
+        case errorConstant.PASSWORD_ERROR.type:
+            message = errorConstant.PASSWORD_ERROR.message;
+            status = errorConstant.PASSWORD_ERROR.errorCode;
+            break;
         default :
             status = 404;
             message = "NOT FOUND";

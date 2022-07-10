@@ -1,8 +1,11 @@
 const servicePromise = require('../utils/servicePromise');
-
+const jwt = require("jsonwebtoken");
 class LoginService{
-    async Login(){
-        return "成功"
+    async Login(name){
+        // 返回用户信息
+        const selectUserInfo = "select id,name from `user` where name=(?)";
+        const result = await servicePromise(selectUserInfo,[name]);
+        return result;
     }
 
     async getPasswordByName(name){
