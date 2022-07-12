@@ -1,14 +1,17 @@
 const LoginService = require('../service/login.service');
-
-class LoginController{
-    async Login(ctx,next){
-        const {name} = ctx.request.body;
-        // 查询用户数据库，获取信息
-        const result = (await LoginService.Login(name))[0];
-        // 生成Token
-        console.log(result);
-        ctx.body = result;
+class LoginController {
+     async login(ctx, next) {
+        try {
+            const { name } = ctx.request.body;
+            const {id,name:username} = (await LoginService.login(name))[0];
+            ctx.body = {
+                "id":id,
+                "name":username
+            };
+        } catch (err) {
+            console.log(err);
+        }
     }
 }
 
-module.exports = new LoginController;
+module.exports = new LoginController();
