@@ -1,16 +1,14 @@
-const LoginService = require('../service/login.service');
+const jwt = require("../utils/jwt");
 class LoginController {
-     async login(ctx, next) {
-        try {
-            const { name } = ctx.request.body;
-            const {id,name:username} = (await LoginService.login(name))[0];
-            ctx.body = {
-                "id":id,
-                "name":username
-            };
-        } catch (err) {
-            console.log(err);
-        }
+    async login(ctx, next) {
+        // 生成token
+        const {name,password} = ctx.user;
+        const token = jwt.generateToken({name,password});
+        // 返回信息
+        ctx.body = {
+            name,
+            token
+        };
     }
 }
 

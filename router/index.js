@@ -10,6 +10,7 @@ function useRouter(App){
             if(routerPath === 'index.js') return ;
             const createRouter = require(`./${routerPath}`);
             App.use(createRouter(Router).routes());
+            App.use(createRouter(Router).allowedMethods());
         })
     })
 }
