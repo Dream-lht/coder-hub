@@ -8,7 +8,7 @@ function handleError(error,ctx){
     switch(error.message){
         case errorConstant.USER_OR_PASSWORD_NIT_NULL.type :
             status = errorConstant.USER_OR_PASSWORD_NIT_NULL.errorCode;
-            message = errorConstant.USER_OR_PASSWORD_NIT_NULL.message
+            message = errorConstant.USER_OR_PASSWORD_NIT_NULL.message;
             break;
         case errorConstant.USER_NAME_NOT_EQUAL.type :
             status = errorConstant.USER_NAME_NOT_EQUAL.errorCode;
@@ -17,6 +17,10 @@ function handleError(error,ctx){
         case errorConstant.PASSWORD_ERROR.type:
             message = errorConstant.PASSWORD_ERROR.message;
             status = errorConstant.PASSWORD_ERROR.errorCode;
+            break;
+        case errorConstant.TOKEN_ERROR_OTHER.type:
+            message = errorConstant.TOKEN_ERROR_OTHER.message;
+            status = errorConstant.TOKEN_ERROR_OTHER.errorCode;
             break;
         default :
             status = 404;

@@ -16,8 +16,16 @@ const PASSWORD_ERROR = {
     type:'PASSWORD_ERROR'
 }
 
+
+const TOKEN_ERROR_OTHER = {
+    message:"token出现未知错误",
+    errorCode:500,
+    type:'TOKEN_ERROR_OTHER'
+}
+
 module.exports = {
     USER_OR_PASSWORD_NIT_NULL,
     USER_NAME_NOT_EQUAL,
-    PASSWORD_ERROR
+    PASSWORD_ERROR,
+    TOKEN_ERROR_OTHER
 }
