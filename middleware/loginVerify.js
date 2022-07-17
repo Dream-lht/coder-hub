@@ -34,8 +34,7 @@ async function authVerify(ctx, next) {
         const error = new Error(result.message);
         return ctx.app.emit('error', error, ctx);
     }
-
-    ctx.user = result.data;
+    ctx.user = result.data.data;
     await next();
 }
 

@@ -47,7 +47,6 @@ class JWT {
     verifyToken(token) {
         try {
             const data = jwt.verify(token, this._Public_key, { algorithms: this._algorithm });
-            console.log(data);
             return handleResult(true,200,data,"success");
         } catch (error) {
             return handleResult(false,500,{},tokenError.TOKEN_ERROR_OTHER);

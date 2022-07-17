@@ -15,6 +15,10 @@ class UserController{
         }
         
     }
+
+    async getUserIdByName(name){
+        const result = userService.getUserInfoByName();
+    }   
 }
 
 module.exports = new UserController();
