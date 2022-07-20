@@ -23,7 +23,7 @@ async function loginVerify(ctx, next) {
 }
 
 /**
- * 权限验证
+ * tolen验证
  */
 
 async function authVerify(ctx, next) {
@@ -37,5 +37,6 @@ async function authVerify(ctx, next) {
     ctx.user = result.data.data;
     await next();
 }
+
 
 module.exports = { loginVerify, authVerify };

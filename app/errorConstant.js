@@ -23,9 +23,16 @@ const TOKEN_ERROR_OTHER = {
     type:'TOKEN_ERROR_OTHER'
 }
 
+const PERMISSION_ERROR = {
+    message:"抱歉，您权限不够",
+    errorCode:500,
+    type:'PERMISSION_ERROR'
+}
+
 module.exports = {
     USER_OR_PASSWORD_NIT_NULL,
     USER_NAME_NOT_EQUAL,
     PASSWORD_ERROR,
-    TOKEN_ERROR_OTHER
+    TOKEN_ERROR_OTHER,
+    PERMISSION_ERROR
 }

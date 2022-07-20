@@ -11,6 +11,11 @@ class UserService{
         const selectUserByName = 'select * from `user` where name=(?);'
         return await servicePromise(selectUserByName,[name]);
     }
+
+    async getUserIdByName(name){
+        const selectUserByName = 'select id from `user` where name=(?);'
+        return await servicePromise(selectUserByName,[name]);
+    }
 }
 
 module.exports = new UserService();
