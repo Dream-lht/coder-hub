@@ -1,6 +1,6 @@
 const momentService = require('../service/moment.service');
 const userService = require('../service/user.service');
-
+const resultFormat = require('../utils/resultFormat');
 class MomentController {
     // 获取动态列表
     async getMomentList(ctx,next) { 
@@ -19,7 +19,7 @@ class MomentController {
             const { id } = result[0];
             await momentService.addMomentItem({ content, id });
 
-            ctx.body = "动态发布成功！";
+            ctx.body = resultFormat(200,[],"moment release success");
         } catch (err) {
             console.log(err);
         }
@@ -29,7 +29,7 @@ class MomentController {
         try{
             const {momentId} = ctx.params;
             const result = await momentService.getMomentItemById(momentId);
-            ctx.body = result;
+            ctx.body = resultFormat(200,result,"success");
         }catch(err){
             console.log(err);
         }
@@ -41,7 +41,7 @@ class MomentController {
             const {content} = ctx.request.body;
             const {momentId} = ctx.params;
             const result = await momentService.updateMomentContent(momentId,content);
-            ctx.body = result;
+            ctx.body = resultFormat(200,result,"uodate success");
         }catch(err){
             console.logZ(err);
         }
@@ -52,9 +52,9 @@ class MomentController {
         try{
             const {momentId} = ctx.params;
             const result = await momentService.deleteMomentItem(momentId);
-            ctx.body = result;
+            ctx.body = resultFormat(200,result,"remove moment success");
         }catch(err){
-            console.log(err);
+            
         }
     }
 }

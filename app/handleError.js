@@ -2,6 +2,7 @@
  * 错误处理
  */
 const errorConstant = require('./errorConstant');
+const resultFormat = require("../utils/resultFormat");
 function handleError(error, ctx) {
     let status = null;
     let message = '';
@@ -32,8 +33,8 @@ function handleError(error, ctx) {
             break;
     }
 
-    ctx.status = status;
-    ctx.body = message;
+    
+    ctx.body = resultFormat(status,[],message);
 }
 
 module.exports = handleError;
