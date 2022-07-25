@@ -15,7 +15,7 @@ class LabelService{
         return result;
     }
     // 删除标签
-    removeLabel(labelId){
+    async removeLabel(labelId){
         const deleteLabel = "DELETE FROM `labels` WHERE id=(?);";
         const result = await servicePromise(deleteLabel,[labelId]);
         return result;
